@@ -24,7 +24,7 @@ public class AliLog {
         if(log==null)
             
         {
-            
+            //>>>
             log= Logger.getLogger("ALILOG");   
             BasicConfigurator.configure();//默认配置   
             System.out.println(System.getProperty("user.dir"));
