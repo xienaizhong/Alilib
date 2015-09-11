@@ -12,7 +12,7 @@ import org.apache.commons.httpclient.methods.GetMethod;
 
 
 public class AliHTTP {
-
+  
 	private static HttpClient httpClient;
 
 	public static String getString(String url) {
@@ -22,7 +22,7 @@ public class AliHTTP {
 		// if(httpClient==null) httpClient =new DefaultHttpClient();
 		HttpMethod getMethod = new GetMethod(url);
                 
-                
+                //发发 
                 
                 
                 
