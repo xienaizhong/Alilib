@@ -32,7 +32,7 @@ public class AliFile {
     }
     
     
-    //FUCK YOU FUCK ME
+    //FUCK YOU FUCK ME FUCK IT ALWAYS
     public static void append(String filename,List<String>list ) throws IOException
     {
         File f = new File(filename);
