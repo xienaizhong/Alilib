@@ -5,15 +5,12 @@
  */
 package alilibs;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -21,28 +18,21 @@ import java.util.logging.Logger;
  */
 public class DomainsSearch {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        if(args.length==0)
-        args = new String[]{".com","0"};
-        
-        String houzui  = args[0];
-        int x = Integer.valueOf(args[1]);
-        try {
-            search(x,houzui);
-        } catch (Exception ex) {
-            Logger.getLogger(DomainsSearch.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
-        
-        
-    }
+    
+    
     static PrintWriter pw = null ;
-    public static void search(int c,String houzui) throws Exception
+    
+    
+    /**
+     * 用来搜索域名有没有被注册 .结果将显示在本地的一个txt文件里
+     * @param houzui  后缀 比如.com .cn
+     * @param list 是一个需要查询的集合
+     * @param count 这个集合从多少开始
+     * @throws Exception 
+     */
+    
+    
+    public static void search(String houzui,List<String> list ,int count) throws Exception
     {
         
         
@@ -52,8 +42,19 @@ public class DomainsSearch {
         
         
         
-        List<String> list = new ArrayList<String>();
-        String [] aaa = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","","9","0"};
+        //List<String> list = new ArrayList<String>();
+        //String [] aaa = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","","9","0"};
+        
+        for(int i=0;i<list.size();i++)
+        {
+            
+            gogo("http://whois.chinaz.com/"+list.get(i)+houzui,count);
+            
+            
+        }
+        
+        
+        /*
         
         for(int i=0;i<aaa.length;i++)
         {
@@ -110,7 +111,7 @@ public class DomainsSearch {
         
         
         
-        
+        */
         
         
         
@@ -123,7 +124,7 @@ public class DomainsSearch {
         String result2 = "";
                 
 
-                 result2 = HTTP.getString(url);
+                 result2 = AliHTTP.getString(url);
         if(result2.contains("该域名未被注册"))
         
         {
